@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/09/19/hello-worl/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="ios 针对状态栏操作1、在ViewController中操作当前ViewController的状态栏12345678910111213/** 隐藏状态栏 */  override func prefersStatusBarHidden() -&amp;gt; Bool &amp;#123;  return true;  &amp;#125;  /** 设置状态栏风格 */  override func preferre">
-<meta property="og:updated_time" content="2016-09-19T17:39:24.000Z">
+<meta property="og:updated_time" content="2016-09-19T17:40:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
 <meta name="twitter:description" content="ios 针对状态栏操作1、在ViewController中操作当前ViewController的状态栏12345678910111213/** 隐藏状态栏 */  override func prefersStatusBarHidden() -&amp;gt; Bool &amp;#123;  return true;  &amp;#125;  /** 设置状态栏风格 */  override func preferre">
@@ -52,9 +52,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -81,11 +81,21 @@
 <p>这样在app启动的launch页显示的时候，statusBar的样式就是上面plist设置的风格。</p>
 <h1 id="Swift-文本输入框（UITextField）的用法"><a href="#Swift-文本输入框（UITextField）的用法" class="headerlink" title="Swift - 文本输入框（UITextField）的用法"></a>Swift - 文本输入框（UITextField）的用法</h1><p><a href="http://www.hangge.com/blog/cache/detail_530.html" target="_blank" rel="external">http://www.hangge.com/blog/cache/detail_530.html</a></p>
 <h1 id="button-动画"><a href="#button-动画" class="headerlink" title="button 动画"></a>button 动画</h1><p><a href="http://www.cocoachina.com/industry/20140812/9360.html" target="_blank" rel="external">http://www.cocoachina.com/industry/20140812/9360.html</a></p>
+<h1 id="iOS实现渐变背景色的三种方法"><a href="#iOS实现渐变背景色的三种方法" class="headerlink" title="iOS实现渐变背景色的三种方法"></a>iOS实现渐变背景色的三种方法</h1><p>为了定义渐变色， 至少有四个属性需要定义</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">CGPoint</span> inputPoint0;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">CGPoint</span> inputPoint1;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">UIColor</span> *inputColor0;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">UIColor</span> *inputColor1;</div></pre></td></tr></table></figure>
+<p>两个 CGPoint 属性定义了渐变色开始和结束的地方。 They are defined in a unit coordinate space where (0, 0) at the top left and (1, 1) at the bottom right. The two UIColor properties define the start colour and the end colour.</p>
+<h3 id="1-CAGradientLayer"><a href="#1-CAGradientLayer" class="headerlink" title="1. CAGradientLayer"></a>1. CAGradientLayer</h3><p>We are not going to discuss the details of how to use CAGradientLayer. There is a good article talking about it: <a href="http://www.cnblogs.com/YouXianMing/p/3793913.html" target="_blank" rel="external">http://www.cnblogs.com/YouXianMing/p/3793913.html</a>.</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CAGradientLayer</span> *layer = [<span class="built_in">CAGradientLayer</span> new];</div><div class="line">layer.colors = @[(__bridge <span class="keyword">id</span>)_inputColor0.CGColor, (__bridge <span class="keyword">id</span>)_inputColor1.CGColor];</div><div class="line">layer.startPoint = _inputPoint0;</div><div class="line">layer.endPoint = _inputPoint1;</div><div class="line">layer.frame = <span class="keyword">self</span>.bounds;           </div><div class="line">[<span class="keyword">self</span>.layeraddSublayer:layer];</div></pre></td></tr></table></figure>
+<h3 id="2-CGGradientRef"><a href="#2-CGGradientRef" class="headerlink" title="2. CGGradientRef"></a>2. CGGradientRef</h3><p>About Core Graphics and Core Image, please refer here, a very very good article:<br><a href="http://www.techotopia.com/index.php/An_iOS_7_Graphics_Tutorial_using_Core_Graphics_and_Core_Image" target="_blank" rel="external">http://www.techotopia.com/index.php/An_iOS_7_Graphics_Tutorial_using_Core_Graphics_and_Core_Image</a><br>Note that CAGradientLayer is using unit coordinate space while Core Graphics and Core Image are not. More Interestingly, Core Graphics’ coordinate space where (0, 0) starts at the top left is different from Core Image’s where (0, 0) starts at bottom left.<br>The following code is called in drawRect:.</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CGContextRef</span> context = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"><span class="built_in">UIGraphicsPushContext</span>(context);</div><div class="line"></div><div class="line"><span class="built_in">CGColorSpaceRef</span> colorSpace = <span class="built_in">CGColorSpaceCreateDeviceRGB</span>();</div><div class="line"><span class="built_in">CGFloat</span> locations[] = &#123;<span class="number">0</span>,<span class="number">1</span>&#125;;</div><div class="line"><span class="built_in">NSArray</span> *colors = @[(__bridge <span class="keyword">id</span>)_inputColor0.CGColor, (__bridge <span class="keyword">id</span>)_inputColor1.CGColor];</div><div class="line"><span class="built_in">CGGradientRef</span> gradient = <span class="built_in">CGGradientCreateWithColors</span>(colorSpace, (<span class="built_in">CFArrayRef</span>) colors, locations);</div><div class="line"><span class="built_in">CGColorSpaceRelease</span>(colorSpace);</div><div class="line"></div><div class="line"><span class="built_in">CGPoint</span> startPoint = (<span class="built_in">CGPoint</span>)&#123;rect.size.width * _inputPoint0.x, rect.size.height * _inputPoint0.y&#125;;</div><div class="line"><span class="built_in">CGPoint</span> endPoint = (<span class="built_in">CGPoint</span>)&#123;rect.size.width * _inputPoint1.x, rect.size.height * _inputPoint1.y&#125;;</div><div class="line"><span class="built_in">CGContextDrawLinearGradient</span>(context, gradient, startPoint, endPoint, <span class="number">0</span>);</div><div class="line"></div><div class="line"><span class="built_in">CGGradientRelease</span>(gradient);</div><div class="line"><span class="built_in">UIGraphicsPopContext</span>();</div></pre></td></tr></table></figure>
+<h3 id="3-Core-Image"><a href="#3-Core-Image" class="headerlink" title="3. Core Image"></a>3. Core Image</h3><p>The following code is called in drawRect:.</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CIFilter</span> *ciFilter = [<span class="built_in">CIFilter</span> filterWithName:<span class="string">@"CILinearGradient"</span>];</div><div class="line"><span class="built_in">CIVector</span> *vector0 = [<span class="built_in">CIVector</span> vectorWithX:rect.size.width * _inputPoint0.x Y:rect.size.height * (<span class="number">1</span> - _inputPoint0.y)];</div><div class="line"><span class="built_in">CIVector</span> *vector1 = [<span class="built_in">CIVector</span> vectorWithX:rect.size.width * _inputPoint1.x Y:rect.size.height * (<span class="number">1</span> - _inputPoint1.y)];</div><div class="line">[ciFilter setValue:vector0 forKey:<span class="string">@"inputPoint0"</span>];</div><div class="line">[ciFilter setValue:vector1 forKey:<span class="string">@"inputPoint1"</span>];</div><div class="line">[ciFilter setValue:[<span class="built_in">CIColor</span> colorWithCGColor:_inputColor0.CGColor] forKey:<span class="string">@"inputColor0"</span>];</div><div class="line">[ciFilter setValue:[<span class="built_in">CIColor</span> colorWithCGColor:_inputColor1.CGColor] forKey:<span class="string">@"inputColor1"</span>];</div><div class="line"></div><div class="line"><span class="built_in">CIImage</span> *ciImage = ciFilter.outputImage;</div><div class="line"><span class="built_in">CIContext</span> *con = [<span class="built_in">CIContext</span> contextWithOptions:<span class="literal">nil</span>];</div><div class="line"><span class="built_in">CGImageRef</span> resultCGImage = [con createCGImage:ciImage</div><div class="line">fromRect:rect];</div><div class="line"><span class="built_in">UIImage</span> *resultUIImage = [<span class="built_in">UIImage</span> imageWithCGImage:resultCGImage];</div><div class="line"><span class="built_in">CGImageRelease</span>(resultCGImage);</div><div class="line"></div><div class="line">[resultUIImage drawInRect:rect];</div></pre></td></tr></table></figure>
+<p>Sample code can be found here: <a href="https://github.com/RungeZhai/LGGradientBackgroundView" target="_blank" rel="external">https://github.com/RungeZhai/LGGradientBackgroundView</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/19/hello-worl/" data-id="citabpo5f0000mq9kjs8alks7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/19/hello-worl/" data-id="citabpo5f0000mq9kjs8alks7" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -119,7 +129,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -140,7 +150,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 John<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
