@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -75,9 +75,7 @@
       
         <h1 id="ios-针对状态栏操作"><a href="#ios-针对状态栏操作" class="headerlink" title="ios 针对状态栏操作"></a>ios 针对状态栏操作</h1><h3 id="1、在ViewController中操作当前ViewController的状态栏"><a href="#1、在ViewController中操作当前ViewController的状态栏" class="headerlink" title="1、在ViewController中操作当前ViewController的状态栏"></a>1、在ViewController中操作当前ViewController的状态栏</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** </span></div><div class="line">隐藏状态栏 </div><div class="line">*/  </div><div class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">prefersStatusBarHidden</span><span class="params">()</span></span> -&gt; <span class="type">Bool</span> &#123;  </div><div class="line"><span class="keyword">return</span> <span class="literal">true</span>;  </div><div class="line">&#125;  </div><div class="line"></div><div class="line"><span class="comment">/** </span></div><div class="line">设置状态栏风格 </div><div class="line">*/  </div><div class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">preferredStatusBarStyle</span><span class="params">()</span></span> -&gt; <span class="type">UIStatusBarStyle</span> &#123;  </div><div class="line"><span class="keyword">return</span> <span class="type">UIStatusBarStyle</span>.<span class="type">LightContent</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="2、在AppDelegate中设置状态栏"><a href="#2、在AppDelegate中设置状态栏" class="headerlink" title="2、在AppDelegate中设置状态栏"></a>2、在AppDelegate中设置状态栏</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">setupWithStatusBar</span><span class="params">(application: UIApplication)</span></span> &#123;  </div><div class="line"><span class="comment">// 设置状态栏隐藏  </span></div><div class="line">application.statusBarHidden = <span class="literal">true</span>;  </div><div class="line">application.setStatusBarHidden(<span class="literal">true</span>, withAnimation: <span class="type">UIStatusBarAnimation</span>.<span class="type">Fade</span>);  </div><div class="line"><span class="comment">// 设置状态栏高亮  </span></div><div class="line">application.statusBarStyle = <span class="type">UIStatusBarStyle</span>.<span class="type">LightContent</span>;  </div><div class="line">application.setStatusBarStyle(<span class="type">UIStatusBarStyle</span>.<span class="type">LightContent</span>, animated: <span class="literal">true</span>);  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="3、通过plist文件配置状态栏属性"><a href="#3、通过plist文件配置状态栏属性" class="headerlink" title="3、通过plist文件配置状态栏属性"></a>3、通过plist文件配置状态栏属性</h3><blockquote>
-<p>在<strong>plist</strong>里增加一行 <strong>UIStatusBarStyle</strong>(或者是“<strong>Status bar style</strong>”也可以)，这里可以设置两个值，就是上面提到那两个<br><code>UIStatusBarStyleDefault</code> 和 <code>UIStatusBarStyleLightContent</code></p>
-</blockquote>
+<h3 id="3、通过plist文件配置状态栏属性"><a href="#3、通过plist文件配置状态栏属性" class="headerlink" title="3、通过plist文件配置状态栏属性"></a>3、通过plist文件配置状态栏属性</h3><p>在<strong>plist</strong>里增加一行 <strong>UIStatusBarStyle</strong>(或者是“<strong>Status bar style</strong>”也可以)，这里可以设置两个值，就是上面提到那两个<br><code>UIStatusBarStyleDefault</code> 和 <code>UIStatusBarStyleLightContent</code></p>
 <p>这样在app启动的launch页显示的时候，statusBar的样式就是上面plist设置的风格。</p>
 <h1 id="Swift-文本输入框（UITextField）的用法"><a href="#Swift-文本输入框（UITextField）的用法" class="headerlink" title="Swift - 文本输入框（UITextField）的用法"></a>Swift - 文本输入框（UITextField）的用法</h1><p><a href="http://www.hangge.com/blog/cache/detail_530.html" target="_blank" rel="external">http://www.hangge.com/blog/cache/detail_530.html</a></p>
 <h1 id="button-动画"><a href="#button-动画" class="headerlink" title="button 动画"></a>button 动画</h1><p><a href="http://www.cocoachina.com/industry/20140812/9360.html" target="_blank" rel="external">http://www.cocoachina.com/industry/20140812/9360.html</a></p>
@@ -85,7 +83,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/19/hello-worl/" data-id="citabpo5f0000mq9kjs8alks7" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/09/19/hello-worl/" data-id="citabpo5f0000mq9kjs8alks7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -120,7 +118,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
@@ -141,7 +139,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 John<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
