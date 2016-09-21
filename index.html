@@ -233,8 +233,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/12/25/ios杂记/" itemprop="url">
-                  ios杂记
+                <a class="post-title-link" href="/2016/09/22/react-native/" itemprop="url">
+                  about react-native
                 </a>
               
             
@@ -247,8 +247,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-12-25T18:29:00+08:00" content="2015-12-25">
-              2015-12-25
+            <time itemprop="dateCreated" datetime="2016-09-22T00:00:00+08:00" content="2016-09-22">
+              2016-09-22
             </time>
           </span>
 
@@ -261,8 +261,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/ios/" itemprop="url" rel="index">
-                    <span itemprop="name">ios</span>
+                  <a href="/categories/react-native/" itemprop="url" rel="index">
+                    <span itemprop="name">react-native</span>
                   </a>
                 </span>
 
@@ -295,31 +295,12 @@
 
       
         
-          
-            <h1 id="NativeJS-iOS-原生项目集成-React-Native-中遇到的问题-不定期持续更新"><a href="#NativeJS-iOS-原生项目集成-React-Native-中遇到的问题-不定期持续更新" class="headerlink" title="NativeJS iOS 原生项目集成 React-Native 中遇到的问题(不定期持续更新)"></a>NativeJS iOS 原生项目集成 React-Native 中遇到的问题(不定期持续更新)</h1><p><a href="http://www.jianshu.com/p/c595ef2d4a35" target="_blank" rel="external">http://www.jianshu.com/p/c595ef2d4a35</a></p>
-<h1 id="ios-针对状态栏操作"><a href="#ios-针对状态栏操作" class="headerlink" title="ios 针对状态栏操作"></a>ios 针对状态栏操作</h1><h3 id="1、在ViewController中操作当前ViewController的状态栏"><a href="#1、在ViewController中操作当前ViewController的状态栏" class="headerlink" title="1、在ViewController中操作当前ViewController的状态栏"></a>1、在ViewController中操作当前ViewController的状态栏</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** </span></div><div class="line">隐藏状态栏 </div><div class="line">*/  </div><div class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">prefersStatusBarHidden</span><span class="params">()</span></span> -&gt; <span class="type">Bool</span> &#123;  </div><div class="line"><span class="keyword">return</span> <span class="literal">true</span>;  </div><div class="line">&#125;  </div><div class="line"></div><div class="line"><span class="comment">/** </span></div><div class="line">设置状态栏风格 </div><div class="line">*/  </div><div class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">preferredStatusBarStyle</span><span class="params">()</span></span> -&gt; <span class="type">UIStatusBarStyle</span> &#123;  </div><div class="line"><span class="keyword">return</span> <span class="type">UIStatusBarStyle</span>.<span class="type">LightContent</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="2、在AppDelegate中设置状态栏"><a href="#2、在AppDelegate中设置状态栏" class="headerlink" title="2、在AppDelegate中设置状态栏"></a>2、在AppDelegate中设置状态栏</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">setupWithStatusBar</span><span class="params">(application: UIApplication)</span></span> &#123;  </div><div class="line"><span class="comment">// 设置状态栏隐藏  </span></div><div class="line">application.statusBarHidden = <span class="literal">true</span>;  </div><div class="line">application.setStatusBarHidden(<span class="literal">true</span>, withAnimation: <span class="type">UIStatusBarAnimation</span>.<span class="type">Fade</span>);  </div><div class="line"><span class="comment">// 设置状态栏高亮  </span></div><div class="line">application.statusBarStyle = <span class="type">UIStatusBarStyle</span>.<span class="type">LightContent</span>;  </div><div class="line">application.setStatusBarStyle(<span class="type">UIStatusBarStyle</span>.<span class="type">LightContent</span>, animated: <span class="literal">true</span>);  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="3、通过plist文件配置状态栏属性"><a href="#3、通过plist文件配置状态栏属性" class="headerlink" title="3、通过plist文件配置状态栏属性"></a>3、通过plist文件配置状态栏属性</h3><p>在<strong>plist</strong>里增加一行 <strong>UIStatusBarStyle</strong>(或者是“<strong>Status bar style</strong>”也可以)，这里可以设置两个值，就是上面提到那两个<br><code>UIStatusBarStyleDefault</code> 和 <code>UIStatusBarStyleLightContent</code></p>
-<p>这样在app启动的launch页显示的时候，statusBar的样式就是上面plist设置的风格。</p>
-<h1 id="Swift-文本输入框（UITextField）的用法"><a href="#Swift-文本输入框（UITextField）的用法" class="headerlink" title="Swift - 文本输入框（UITextField）的用法"></a>Swift - 文本输入框（UITextField）的用法</h1><p><a href="http://www.hangge.com/blog/cache/detail_530.html" target="_blank" rel="external">http://www.hangge.com/blog/cache/detail_530.html</a></p>
-<h1 id="button-动画"><a href="#button-动画" class="headerlink" title="button 动画"></a>button 动画</h1><p><a href="http://www.cocoachina.com/industry/20140812/9360.html" target="_blank" rel="external">http://www.cocoachina.com/industry/20140812/9360.html</a></p>
-<h1 id="iOS实现渐变背景色的三种方法"><a href="#iOS实现渐变背景色的三种方法" class="headerlink" title="iOS实现渐变背景色的三种方法"></a>iOS实现渐变背景色的三种方法</h1><p>为了定义渐变色， 至少有四个属性需要定义</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">CGPoint</span> inputPoint0;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">CGPoint</span> inputPoint1;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">UIColor</span> *inputColor0;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">UIColor</span> *inputColor1;</div></pre></td></tr></table></figure>
-<p>两个 CGPoint 属性定义了渐变色开始和结束的地方。 They are defined in a unit coordinate space where (0, 0) at the top left and (1, 1) at the bottom right. The two UIColor properties define the start colour and the end colour.</p>
-<h3 id="1-CAGradientLayer"><a href="#1-CAGradientLayer" class="headerlink" title="1. CAGradientLayer"></a>1. CAGradientLayer</h3><p>We are not going to discuss the details of how to use CAGradientLayer. There is a good article talking about it: <a href="http://www.cnblogs.com/YouXianMing/p/3793913.html" target="_blank" rel="external">http://www.cnblogs.com/YouXianMing/p/3793913.html</a>.</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CAGradientLayer</span> *layer = [<span class="built_in">CAGradientLayer</span> new];</div><div class="line">layer.colors = @[(__bridge <span class="keyword">id</span>)_inputColor0.CGColor, (__bridge <span class="keyword">id</span>)_inputColor1.CGColor];</div><div class="line">layer.startPoint = _inputPoint0;</div><div class="line">layer.endPoint = _inputPoint1;</div><div class="line">layer.frame = <span class="keyword">self</span>.bounds;           </div><div class="line">[<span class="keyword">self</span>.layeraddSublayer:layer];</div></pre></td></tr></table></figure>
-<h3 id="2-CGGradientRef"><a href="#2-CGGradientRef" class="headerlink" title="2. CGGradientRef"></a>2. CGGradientRef</h3><p>About Core Graphics and Core Image, please refer here, a very very good article:<br><a href="http://www.techotopia.com/index.php/An_iOS_7_Graphics_Tutorial_using_Core_Graphics_and_Core_Image" target="_blank" rel="external">http://www.techotopia.com/index.php/An_iOS_7_Graphics_Tutorial_using_Core_Graphics_and_Core_Image</a><br>Note that CAGradientLayer is using unit coordinate space while Core Graphics and Core Image are not. More Interestingly, Core Graphics’ coordinate space where (0, 0) starts at the top left is different from Core Image’s where (0, 0) starts at bottom left.<br>The following code is called in drawRect:.</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CGContextRef</span> context = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"><span class="built_in">UIGraphicsPushContext</span>(context);</div><div class="line"></div><div class="line"><span class="built_in">CGColorSpaceRef</span> colorSpace = <span class="built_in">CGColorSpaceCreateDeviceRGB</span>();</div><div class="line"><span class="built_in">CGFloat</span> locations[] = &#123;<span class="number">0</span>,<span class="number">1</span>&#125;;</div><div class="line"><span class="built_in">NSArray</span> *colors = @[(__bridge <span class="keyword">id</span>)_inputColor0.CGColor, (__bridge <span class="keyword">id</span>)_inputColor1.CGColor];</div><div class="line"><span class="built_in">CGGradientRef</span> gradient = <span class="built_in">CGGradientCreateWithColors</span>(colorSpace, (<span class="built_in">CFArrayRef</span>) colors, locations);</div><div class="line"><span class="built_in">CGColorSpaceRelease</span>(colorSpace);</div><div class="line"></div><div class="line"><span class="built_in">CGPoint</span> startPoint = (<span class="built_in">CGPoint</span>)&#123;rect.size.width * _inputPoint0.x, rect.size.height * _inputPoint0.y&#125;;</div><div class="line"><span class="built_in">CGPoint</span> endPoint = (<span class="built_in">CGPoint</span>)&#123;rect.size.width * _inputPoint1.x, rect.size.height * _inputPoint1.y&#125;;</div><div class="line"><span class="built_in">CGContextDrawLinearGradient</span>(context, gradient, startPoint, endPoint, <span class="number">0</span>);</div><div class="line"></div><div class="line"><span class="built_in">CGGradientRelease</span>(gradient);</div><div class="line"><span class="built_in">UIGraphicsPopContext</span>();</div></pre></td></tr></table></figure>
-<h3 id="3-Core-Image"><a href="#3-Core-Image" class="headerlink" title="3. Core Image"></a>3. Core Image</h3><p>The following code is called in drawRect:.</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CIFilter</span> *ciFilter = [<span class="built_in">CIFilter</span> filterWithName:<span class="string">@"CILinearGradient"</span>];</div><div class="line"><span class="built_in">CIVector</span> *vector0 = [<span class="built_in">CIVector</span> vectorWithX:rect.size.width * _inputPoint0.x Y:rect.size.height * (<span class="number">1</span> - _inputPoint0.y)];</div><div class="line"><span class="built_in">CIVector</span> *vector1 = [<span class="built_in">CIVector</span> vectorWithX:rect.size.width * _inputPoint1.x Y:rect.size.height * (<span class="number">1</span> - _inputPoint1.y)];</div><div class="line">[ciFilter setValue:vector0 forKey:<span class="string">@"inputPoint0"</span>];</div><div class="line">[ciFilter setValue:vector1 forKey:<span class="string">@"inputPoint1"</span>];</div><div class="line">[ciFilter setValue:[<span class="built_in">CIColor</span> colorWithCGColor:_inputColor0.CGColor] forKey:<span class="string">@"inputColor0"</span>];</div><div class="line">[ciFilter setValue:[<span class="built_in">CIColor</span> colorWithCGColor:_inputColor1.CGColor] forKey:<span class="string">@"inputColor1"</span>];</div><div class="line"></div><div class="line"><span class="built_in">CIImage</span> *ciImage = ciFilter.outputImage;</div><div class="line"><span class="built_in">CIContext</span> *con = [<span class="built_in">CIContext</span> contextWithOptions:<span class="literal">nil</span>];</div><div class="line"><span class="built_in">CGImageRef</span> resultCGImage = [con createCGImage:ciImage</div><div class="line">fromRect:rect];</div><div class="line"><span class="built_in">UIImage</span> *resultUIImage = [<span class="built_in">UIImage</span> imageWithCGImage:resultCGImage];</div><div class="line"><span class="built_in">CGImageRelease</span>(resultCGImage);</div><div class="line"></div><div class="line">[resultUIImage drawInRect:rect];</div></pre></td></tr></table></figure>
-<p>Sample code can be found here: <a href="https://github.com/RungeZhai/LGGradientBackgroundView" target="_blank" rel="external">https://github.com/RungeZhai/LGGradientBackgroundView</a></p>
-<h1 id="mac系统如何显示和隐藏文件"><a href="#mac系统如何显示和隐藏文件" class="headerlink" title="mac系统如何显示和隐藏文件"></a>mac系统如何显示和隐藏文件</h1><h3 id="Mac-OS-X操作系统下"><a href="#Mac-OS-X操作系统下" class="headerlink" title="Mac OS X操作系统下"></a>Mac OS X操作系统下</h3><p>隐藏文件是否显示有很多种设置方法，最简单的要算在<code>Mac终端</code>输入命令。显示/隐藏Mac隐藏文件命令如下(注意其中的空格并且区分大小写)。</p>
-<h3 id="显示Mac隐藏文件的命令："><a href="#显示Mac隐藏文件的命令：" class="headerlink" title="显示Mac隐藏文件的命令："></a>显示Mac隐藏文件的命令：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">defaults write com.apple.finder AppleShowAllFiles -bool true</div></pre></td></tr></table></figure>
-<p> or<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">defaults write com.apple.finder AppleShowAllFiles  YES</div></pre></td></tr></table></figure></p>
-<h3 id="隐藏Mac隐藏文件的命令："><a href="#隐藏Mac隐藏文件的命令：" class="headerlink" title="隐藏Mac隐藏文件的命令："></a>隐藏Mac隐藏文件的命令：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">defaults write com.apple.finder AppleShowAllFiles -bool false</div></pre></td></tr></table></figure>
-<p>or<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">defaults write com.apple.finder AppleShowAllFiles  NO</div></pre></td></tr></table></figure></p>
-
-          
+          react-native
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/22/react-native/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -367,7 +348,7 @@
             
               
                 
-                <a class="post-title-link" href="/2015/12/25/react-native/" itemprop="url">
+                <a class="post-title-link" href="/2015/12/25/ios杂记/" itemprop="url">
                   ios杂记
                 </a>
               
@@ -529,7 +510,7 @@
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
