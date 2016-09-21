@@ -85,18 +85,21 @@
 
 
 <meta name="description" content="NativeJS iOS 原生项目集成 React-Native 中遇到的问题(不定期持续更新)http://www.jianshu.com/p/c595ef2d4a35
-ios 针对状态栏操作1、在ViewController中操作当前ViewController的状态栏12345678910111213/** 隐藏状态栏 */  override func prefersStatusBarHi">
+title: ios杂记
+ios 针对状态栏操作1、在ViewController中操作当前ViewController的状态栏12345678910111213/** 隐藏状态栏 */  override func prefe">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Creep-">
 <meta property="og:url" content="http://yoursite.com/2016/09/19/hello-worl/index.html">
 <meta property="og:site_name" content="Creep-">
 <meta property="og:description" content="NativeJS iOS 原生项目集成 React-Native 中遇到的问题(不定期持续更新)http://www.jianshu.com/p/c595ef2d4a35
-ios 针对状态栏操作1、在ViewController中操作当前ViewController的状态栏12345678910111213/** 隐藏状态栏 */  override func prefersStatusBarHi">
-<meta property="og:updated_time" content="2016-09-21T16:57:32.000Z">
+title: ios杂记
+ios 针对状态栏操作1、在ViewController中操作当前ViewController的状态栏12345678910111213/** 隐藏状态栏 */  override func prefe">
+<meta property="og:updated_time" content="2016-09-21T16:59:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Creep-">
 <meta name="twitter:description" content="NativeJS iOS 原生项目集成 React-Native 中遇到的问题(不定期持续更新)http://www.jianshu.com/p/c595ef2d4a35
-ios 针对状态栏操作1、在ViewController中操作当前ViewController的状态栏12345678910111213/** 隐藏状态栏 */  override func prefersStatusBarHi">
+title: ios杂记
+ios 针对状态栏操作1、在ViewController中操作当前ViewController的状态栏12345678910111213/** 隐藏状态栏 */  override func prefe">
 
 
 
@@ -275,6 +278,7 @@ ios 针对状态栏操作1、在ViewController中操作当前ViewController的�
 
       
         <h1 id="NativeJS-iOS-原生项目集成-React-Native-中遇到的问题-不定期持续更新"><a href="#NativeJS-iOS-原生项目集成-React-Native-中遇到的问题-不定期持续更新" class="headerlink" title="NativeJS iOS 原生项目集成 React-Native 中遇到的问题(不定期持续更新)"></a>NativeJS iOS 原生项目集成 React-Native 中遇到的问题(不定期持续更新)</h1><p><a href="http://www.jianshu.com/p/c595ef2d4a35" target="_blank" rel="external">http://www.jianshu.com/p/c595ef2d4a35</a></p>
+<p>title: ios杂记</p>
 <h1 id="ios-针对状态栏操作"><a href="#ios-针对状态栏操作" class="headerlink" title="ios 针对状态栏操作"></a>ios 针对状态栏操作</h1><h3 id="1、在ViewController中操作当前ViewController的状态栏"><a href="#1、在ViewController中操作当前ViewController的状态栏" class="headerlink" title="1、在ViewController中操作当前ViewController的状态栏"></a>1、在ViewController中操作当前ViewController的状态栏</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** </span></div><div class="line">隐藏状态栏 </div><div class="line">*/  </div><div class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">prefersStatusBarHidden</span><span class="params">()</span></span> -&gt; <span class="type">Bool</span> &#123;  </div><div class="line"><span class="keyword">return</span> <span class="literal">true</span>;  </div><div class="line">&#125;  </div><div class="line"></div><div class="line"><span class="comment">/** </span></div><div class="line">设置状态栏风格 </div><div class="line">*/  </div><div class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">preferredStatusBarStyle</span><span class="params">()</span></span> -&gt; <span class="type">UIStatusBarStyle</span> &#123;  </div><div class="line"><span class="keyword">return</span> <span class="type">UIStatusBarStyle</span>.<span class="type">LightContent</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="2、在AppDelegate中设置状态栏"><a href="#2、在AppDelegate中设置状态栏" class="headerlink" title="2、在AppDelegate中设置状态栏"></a>2、在AppDelegate中设置状态栏</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">setupWithStatusBar</span><span class="params">(application: UIApplication)</span></span> &#123;  </div><div class="line"><span class="comment">// 设置状态栏隐藏  </span></div><div class="line">application.statusBarHidden = <span class="literal">true</span>;  </div><div class="line">application.setStatusBarHidden(<span class="literal">true</span>, withAnimation: <span class="type">UIStatusBarAnimation</span>.<span class="type">Fade</span>);  </div><div class="line"><span class="comment">// 设置状态栏高亮  </span></div><div class="line">application.statusBarStyle = <span class="type">UIStatusBarStyle</span>.<span class="type">LightContent</span>;  </div><div class="line">application.setStatusBarStyle(<span class="type">UIStatusBarStyle</span>.<span class="type">LightContent</span>, animated: <span class="literal">true</span>);  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="3、通过plist文件配置状态栏属性"><a href="#3、通过plist文件配置状态栏属性" class="headerlink" title="3、通过plist文件配置状态栏属性"></a>3、通过plist文件配置状态栏属性</h3><p>在<strong>plist</strong>里增加一行 <strong>UIStatusBarStyle</strong>(或者是“<strong>Status bar style</strong>”也可以)，这里可以设置两个值，就是上面提到那两个<br><code>UIStatusBarStyleDefault</code> 和 <code>UIStatusBarStyleLightContent</code></p>
