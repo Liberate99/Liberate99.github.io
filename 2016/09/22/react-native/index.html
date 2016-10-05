@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/09/22/react-native/index.html">
 <meta property="og:site_name" content="Creep-">
 <meta property="og:description" content="something about react-native">
-<meta property="og:updated_time" content="2016-10-05T06:57:50.000Z">
+<meta property="og:updated_time" content="2016-10-05T07:33:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="about react-native">
 <meta name="twitter:description" content="something about react-native">
@@ -291,12 +291,22 @@
 
       
         <h1 id="FlexBox"><a href="#FlexBox" class="headerlink" title="FlexBox"></a>FlexBox</h1><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flexDirection: 'row' //横向</div></pre></td></tr></table></figure>
-<h1 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h1><h2 id="1-创建阶段"><a href="#1-创建阶段" class="headerlink" title="1. 创建阶段"></a>1. 创建阶段</h2><p><code>getDefaultProps</code>: 在创建类时被调用 主要用于处理组建的默认值（this.props）<br>在<code>React.createClass</code>调用。</p>
-<h2 id="2-实例化阶段"><a href="#2-实例化阶段" class="headerlink" title="2. 实例化阶段"></a>2. 实例化阶段</h2><p><code>React.render()</code> 后开始实例化阶段</p>
-<h3 id="2-1-getInitialState-初始化组建的state值，其返回值赋值给组建的state（获取组建的state默认值）"><a href="#2-1-getInitialState-初始化组建的state值，其返回值赋值给组建的state（获取组建的state默认值）" class="headerlink" title="2.1 getInitialState: 初始化组建的state值，其返回值赋值给组建的state（获取组建的state默认值）"></a>2.1 <code>getInitialState</code>: 初始化组建的state值，其返回值赋值给组建的<code>state</code>（获取组建的state默认值）</h3><ol>
-<li></li>
-</ol>
-<h1 id="NativeJS-iOS-原生项目集成-React-Native-中遇到的问题-不定期持续更新"><a href="#NativeJS-iOS-原生项目集成-React-Native-中遇到的问题-不定期持续更新" class="headerlink" title="NativeJS iOS 原生项目集成 React-Native 中遇到的问题(不定期持续更新)"></a>NativeJS iOS 原生项目集成 React-Native 中遇到的问题(不定期持续更新)</h1><p><a href="http://www.jianshu.com/p/c595ef2d4a35" target="_blank" rel="external">http://www.jianshu.com/p/c595ef2d4a35</a></p>
+<h1 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h1><ul>
+<li><code>state</code>: 组件的属性 主要是用来存储组件自身所需要的数据 每次组件的更新都是通过修改组件state的值 ReactJS内部会监听组件state的变化，一旦发生变化，则会主动出发render方法来更新虚拟DOM结构</li>
+</ul>
+<h3 id="创建阶段"><a href="#创建阶段" class="headerlink" title="创建阶段"></a>创建阶段</h3><p><code>getDefaultProps</code>: 在创建类时被调用 主要用于处理组建的默认值（this.props）<br>在<code>React.createClass</code>调用。</p>
+<h3 id="实例化阶段"><a href="#实例化阶段" class="headerlink" title="实例化阶段"></a>实例化阶段</h3><p><code>React.render()</code> 后开始实例化阶段</p>
+<ul>
+<li><p><code>getInitialState</code>: 初始化组建的state值，其返回值赋值给组建的<code>state</code>（获取组建的state默认值）</p>
+</li>
+<li><p><code>componentWillMount</code>: 在render之前调用此方法 业务逻辑处理应该放在这里（譬如对state的操作）</p>
+</li>
+<li><p><code>render</code>: 根据<code>state</code>的值，渲染并返回一个虚拟DOM</p>
+</li>
+<li><p><code>componentDidMount</code>: 该方法在render之后 reactJS会使用render方法返回的虚拟DOM对象来创建真实的DOM结构<br>组建内部可以通过<code>this.getDOMNode()</code>来获取当前组件的节点</p>
+</li>
+</ul>
+<h3 id="更新阶段"><a href="#更新阶段" class="headerlink" title="更新阶段"></a>更新阶段</h3><h1 id="NativeJS-iOS-原生项目集成-React-Native-中遇到的问题-不定期持续更新"><a href="#NativeJS-iOS-原生项目集成-React-Native-中遇到的问题-不定期持续更新" class="headerlink" title="NativeJS iOS 原生项目集成 React-Native 中遇到的问题(不定期持续更新)"></a>NativeJS iOS 原生项目集成 React-Native 中遇到的问题(不定期持续更新)</h1><p><a href="http://www.jianshu.com/p/c595ef2d4a35" target="_blank" rel="external">http://www.jianshu.com/p/c595ef2d4a35</a></p>
 <h1 id="react-native官方API"><a href="#react-native官方API" class="headerlink" title="react native官方API"></a>react native官方API</h1><p><a href="http://facebook.github.io/react-native/docs/getting-started.html" target="_blank" rel="external">http://facebook.github.io/react-native/docs/getting-started.html</a></p>
 <h1 id="react-native学习指南"><a href="#react-native学习指南" class="headerlink" title="react native学习指南"></a>react native学习指南</h1><p><a href="https://github.com/reactnativecn/react-native-guide" target="_blank" rel="external">https://github.com/reactnativecn/react-native-guide</a></p>
 <h1 id="学习计划"><a href="#学习计划" class="headerlink" title="学习计划"></a>学习计划</h1><h2 id="9月22日至10月3日"><a href="#9月22日至10月3日" class="headerlink" title="9月22日至10月3日"></a><code>9月22日</code>至<code>10月3日</code></h2><pre><code>进行`react-native`的基础学习
@@ -462,7 +472,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#FlexBox"><span class="nav-number">1.</span> <span class="nav-text">FlexBox</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生命周期"><span class="nav-number">2.</span> <span class="nav-text">生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-创建阶段"><span class="nav-number">2.1.</span> <span class="nav-text">1. 创建阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-实例化阶段"><span class="nav-number">2.2.</span> <span class="nav-text">2. 实例化阶段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-getInitialState-初始化组建的state值，其返回值赋值给组建的state（获取组建的state默认值）"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.1 getInitialState: 初始化组建的state值，其返回值赋值给组建的state（获取组建的state默认值）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NativeJS-iOS-原生项目集成-React-Native-中遇到的问题-不定期持续更新"><span class="nav-number">3.</span> <span class="nav-text">NativeJS iOS 原生项目集成 React-Native 中遇到的问题(不定期持续更新)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#react-native官方API"><span class="nav-number">4.</span> <span class="nav-text">react native官方API</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#react-native学习指南"><span class="nav-number">5.</span> <span class="nav-text">react native学习指南</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学习计划"><span class="nav-number">6.</span> <span class="nav-text">学习计划</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#9月22日至10月3日"><span class="nav-number">6.1.</span> <span class="nav-text">9月22日至10月3日</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10月4日至10月9日"><span class="nav-number">6.2.</span> <span class="nav-text">10月4日至10月9日</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#之后"><span class="nav-number">6.3.</span> <span class="nav-text">之后</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#FlexBox"><span class="nav-number">1.</span> <span class="nav-text">FlexBox</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生命周期"><span class="nav-number">2.</span> <span class="nav-text">生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建阶段"><span class="nav-number">2.0.1.</span> <span class="nav-text">创建阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例化阶段"><span class="nav-number">2.0.2.</span> <span class="nav-text">实例化阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新阶段"><span class="nav-number">2.0.3.</span> <span class="nav-text">更新阶段</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NativeJS-iOS-原生项目集成-React-Native-中遇到的问题-不定期持续更新"><span class="nav-number">3.</span> <span class="nav-text">NativeJS iOS 原生项目集成 React-Native 中遇到的问题(不定期持续更新)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#react-native官方API"><span class="nav-number">4.</span> <span class="nav-text">react native官方API</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#react-native学习指南"><span class="nav-number">5.</span> <span class="nav-text">react native学习指南</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学习计划"><span class="nav-number">6.</span> <span class="nav-text">学习计划</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#9月22日至10月3日"><span class="nav-number">6.1.</span> <span class="nav-text">9月22日至10月3日</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10月4日至10月9日"><span class="nav-number">6.2.</span> <span class="nav-text">10月4日至10月9日</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#之后"><span class="nav-number">6.3.</span> <span class="nav-text">之后</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
