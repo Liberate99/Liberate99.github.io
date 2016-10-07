@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/09/22/react-native/index.html">
 <meta property="og:site_name" content="Creep-">
 <meta property="og:description" content="something about react-native">
-<meta property="og:updated_time" content="2016-10-05T07:36:38.000Z">
+<meta property="og:updated_time" content="2016-10-07T11:48:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="about react-native">
 <meta name="twitter:description" content="something about react-native">
@@ -292,7 +292,10 @@
       
         <h1 id="FlexBox"><a href="#FlexBox" class="headerlink" title="FlexBox"></a>FlexBox</h1><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flexDirection: 'row' //横向</div></pre></td></tr></table></figure>
 <h1 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h1><ul>
-<li><code>state</code>: 组件的属性 主要是用来存储组件自身所需要的数据 每次组件的更新都是通过修改组件state的值 ReactJS内部会监听组件state的变化，一旦发生变化，则会主动出发render方法来更新虚拟DOM结构</li>
+<li><p><code>state</code>: 组件的属性 主要是用来存储组件自身所需要的数据 每次组件的更新都是通过修改组件state的值 ReactJS内部会监听组件state的变化，一旦发生变化，则会主动出发render方法来更新虚拟DOM结构</p>
+</li>
+<li><p><code>虚拟DOM</code>: 将真实的DOM结构映射成一个JSON数据结构</p>
+</li>
 </ul>
 <h3 id="创建阶段"><a href="#创建阶段" class="headerlink" title="创建阶段"></a>创建阶段</h3><p><code>getDefaultProps</code>: 在创建类时被调用 主要用于处理组建的默认值（this.props）<br>在<code>React.createClass</code>调用。</p>
 <h3 id="实例化阶段"><a href="#实例化阶段" class="headerlink" title="实例化阶段"></a>实例化阶段</h3><p><code>React.render()</code> 后开始实例化阶段</p>
@@ -307,7 +310,14 @@
 </li>
 </ul>
 <h3 id="更新阶段"><a href="#更新阶段" class="headerlink" title="更新阶段"></a>更新阶段</h3><ul>
-<li>的撒风</li>
+<li><p><code>componentWillRecieveProps</code>: 该方法发生在<code>this.props</code>被修改 或者父组件调用setProps()方法之后 或调用<code>this.setState</code>对state进行修改</p>
+</li>
+<li><p><code>shouldComponentUpdate</code>: 该方法用来拦截新的prop或者state，根据逻辑来判断是否需要更新</p>
+</li>
+<li><p><code>componentWillUpdate</code>: shouldComponentUpdate返回true时执行，组件将更新</p>
+</li>
+<li><p><code>componentDidUpdate</code>: 组件完成更新，可以在这里进行DOM操作</p>
+</li>
 </ul>
 <h1 id="NativeJS-iOS-原生项目集成-React-Native-中遇到的问题-不定期持续更新"><a href="#NativeJS-iOS-原生项目集成-React-Native-中遇到的问题-不定期持续更新" class="headerlink" title="NativeJS iOS 原生项目集成 React-Native 中遇到的问题(不定期持续更新)"></a>NativeJS iOS 原生项目集成 React-Native 中遇到的问题(不定期持续更新)</h1><p><a href="http://www.jianshu.com/p/c595ef2d4a35" target="_blank" rel="external">http://www.jianshu.com/p/c595ef2d4a35</a></p>
 <h1 id="react-native官方API"><a href="#react-native官方API" class="headerlink" title="react native官方API"></a>react native官方API</h1><p><a href="http://facebook.github.io/react-native/docs/getting-started.html" target="_blank" rel="external">http://facebook.github.io/react-native/docs/getting-started.html</a></p>
