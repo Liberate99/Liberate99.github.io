@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/09/22/react-native/index.html">
 <meta property="og:site_name" content="Creep-">
 <meta property="og:description" content="something about react-native">
-<meta property="og:updated_time" content="2016-11-07T06:16:55.000Z">
+<meta property="og:updated_time" content="2016-11-07T06:39:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="about react-native">
 <meta name="twitter:description" content="something about react-native">
@@ -325,12 +325,16 @@
 <li><code>componentWillUnmount</code>:  销毁时进行调用，取消事件绑定，移除虚拟DOM对应的数据结构、销毁一些无效的定时器 </li>
 </ul>
 <hr>
-<h1 id="组件的数据"><a href="#组件的数据" class="headerlink" title="组件的数据"></a>组件的数据</h1><pre><code class="javascript">render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-    <span class="keyword">return</span>(
-        &lt;Text&gt;{this.state.key1}&lt;/Text&gt;
-    );
-}
-</code></pre>
+<h1 id="组件的数据"><a href="#组件的数据" class="headerlink" title="组件的数据"></a>组件的数据</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span>(</div><div class="line">        &lt;Text&gt;</div><div class="line">            &#123;this.state.key1&#125;</div><div class="line">        &lt;／Text&gt;</div><div class="line">    );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里就是直接把状态中的 key1 的值用 Text 组件直接显示出来。</p>
+<p>另外，React 组件中最重要的一个概念就是 state – 组件的状态。除了前面的使用 getInitialState 方法来设置初始化状态外。在界面逻辑处理或者事件交互的过程中，可以调用 this.setState(…) 方法来修改组件的状态值。</p>
+<p>如果在代码中直接修改 state，React 就会把旧状态和新状态做一个 diff，找到变化的部分，然后对应找到和这个变化的值关联的界面部分，请求重新绘制这个部分。例如刚才的例子中，如果调用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.setState(&#123;key1: <span class="string">'Hello world!'</span>&#125;);</div></pre></td></tr></table></figure>
+<p>界面上的<code>Text</code>内容马上就会显示出<code>Hello world!</code>。</p>
+<p>组件中还有一种数据：属性（Property），这种数据可以通过 <code>this.props</code> 来直接获取，例如非常常见的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;View style=&#123;&#123;flex: <span class="number">1</span>&#125;&#125;&gt;</div></pre></td></tr></table></figure>
+<p>这里的 <code>style</code> 就是 <code>View</code> 这个组件的一个属性。</p>
+<p>那么属性(props)和状态(state)两种数据有什么区别呢？一般 <code>属性</code> 表示静态的数据，组件创建后，就基本不变的内容，<code>状态</code> 是动态数据。</p>
 <hr>
 <h1 id="通信问题"><a href="#通信问题" class="headerlink" title="通信问题"></a>通信问题</h1><p>子组件与父组件 </p>
 <ul>
