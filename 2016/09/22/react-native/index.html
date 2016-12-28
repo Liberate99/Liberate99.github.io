@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/09/22/react-native/index.html">
 <meta property="og:site_name" content="Creep-">
 <meta property="og:description" content="something about react-native">
-<meta property="og:updated_time" content="2016-12-28T17:25:37.000Z">
+<meta property="og:updated_time" content="2016-12-28T17:26:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="about react-native">
 <meta name="twitter:description" content="something about react-native">
@@ -298,7 +298,8 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Image</span> <span class="attr">source</span>=<span class="string">&#123;require(</span>'<span class="attr">.</span>/<span class="attr">my-icon.png</span>')&#125; /&gt;</span></div></pre></td></tr></table></figure>
 <p>图片文件的查找会和JS模块的查找方式一样。在上面的这个例子里，是哪个组件引用了这个图片，Packager就会去这个组件所在的文件夹下查找my-icon.png。</p>
 <p>并且，如果你有<code>my-icon.ios.png</code>和<code>my-icon.android.png</code>，Packager就会根据平台而选择不同的文件。</p>
-<p>你还可以使用@2x，@3x这样的文件名后缀，来为不同的屏幕精度提供图片。比如下面这样的代码结构：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">├── button.js</div><div class="line">└── img</div><div class="line">    ├── check@2x.png</div><div class="line">    └── check@3x.png</div></pre></td></tr></table></figure></p>
+<p>你还可以使用@2x，@3x这样的文件名后缀，来为不同的屏幕精度提供图片。比如下面这样的代码结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">├── button.js</div><div class="line">└── img</div><div class="line">    ├── check@2x.png</div><div class="line">    └── check@3x.png</div></pre></td></tr></table></figure>
 <p>并且button.js里有这样的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;Image source=&#123;require(&apos;./img/check.png&apos;)&#125; /&gt;</div></pre></td></tr></table></figure></p>
 <p>Packager会打包所有的图片并且依据屏幕精度提供对应的资源。譬如说，iPhone 5s会使用check@2x.png，而Nexus 5上则会使用check@3x.png。如果没有图片恰好满足屏幕分辨率，则会自动选中最接近的一个图片。<br><code>注意：如果你添加图片的时候packager正在运行，可能需要重启packager以便能正确引入新添加的图片。</code></p>
 <p>这样会带来如下的一些好处: </p>
